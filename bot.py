@@ -1,10 +1,14 @@
-import telebot
 import os
+
+import telebot
 from dotenv import load_dotenv
 
 load_dotenv()
 
 BOT_TOKEN = os.getenv('TGTOKEN')
+if not BOT_TOKEN:
+    raise ValueError("TGTOKEN is not set in .evn file")
+
 
 bot = telebot.TeleBot(BOT_TOKEN, colorful_logs=True)
 
